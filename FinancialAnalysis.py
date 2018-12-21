@@ -157,7 +157,7 @@ class Data:
         self.time = time
         self.index = index
         self.data_mat = data_mat
-        self.path = 'E:/Python/FinancialAnalysis/' + name +'/'
+        self.path = 'E:/Python/FinancialAnalysis/FinancialData/' + name +'/'
         BusinessData = GetBussinessData(code)
         business_data = BusinessData.get_information()
         self.business_data = business_data
@@ -184,8 +184,9 @@ class getPicture:
 
     def __init__(self,name):
 
-        self.path = 'E:/Python/FinancialAnalysis/' + name + '/'
-        self.style = 'seaborn-dark-palette'
+        self.path = 'E:/Python/FinancialAnalysis/FinancialData/' + name + '/'
+        self.style = 'seaborn-bright'
+        # self.style = 'dark_background'
 
     def get_linePicture(self, title, time, key1, value1, color_set = 0, key2='', value2=[], split = False, bar = True, save = False):
         '''
@@ -305,7 +306,7 @@ class getPicture:
         :param data_list:第一维是时间，第二维是标签的数据矩阵
         :param save: 是否存图（默认False）
         '''
-        plt.style.use('seaborn-bright')
+        plt.style.use(self.style)
 
         N = len(labels)
         # 设置雷达图的角度，用于平分切开一个圆面
@@ -448,7 +449,7 @@ class Picture():
 
 
 if __name__ == '__main__':
-    for i in range(1,11):
+    for i in range(1,13):
         data = Data('%06d'%i)
         data.save()
         print(data.name, time.ctime(time.time()))

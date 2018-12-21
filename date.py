@@ -3,8 +3,11 @@ import re
 from bs4 import BeautifulSoup
 import pandas as pd
 import os
+import pandas as pd
+import os
+import time
 
-class DateData:
+class GetDateData:
     '''
     获取数据
     '''
@@ -55,11 +58,35 @@ class DateData:
                 index.append(index_temp)
                 data.append(list_temp[1])
         data_mat = dict(zip(index, data))
-        return index, data_mat
+        time = data_mat['更新时间']
+        return time, index, data
 
+class DateData:
+    '''
+    数据面板
+    '''
+
+    def __init__(self, code):
+        self.code = code
+        FinancialDateData = GetDateData(code)
+        time, index, data = FinancialDateData.get_information()
+        self.time = time
+        self.index = index
+        self.data = data
+        self.path = 'E:/Python/FinancialAnalysis/DateData/' + code +'/'
+
+    def save(self):
+        dataframe = pd.DataFrame(self.data, index=self.index)
+        dataframe.rename({"0":self.time}, axis='index')
+        filename = self.path + self.code + 'DateData' + '.json'
+        dirname = os.path.dirname(filename)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+        dataframe.to_json(filename, force_ascii=False)
 
 
 if __name__ == '__main__':
-    code = input('请输入股票代码 (类似于000001):')
-    data = DateData(code)
-    print(data.get_information())
+    for i in range(1,13):
+        data = DateData('%06d'%i)
+        print(data.code, time.ctime(time.time()))
+        data.save()
