@@ -449,7 +449,7 @@ class Picture():
 
 
 if __name__ == '__main__':
-    for i in range(1,13):
+    for i in range(1,10):
         data = Data('%06d'%i)
         data.save()
         print(data.name, time.ctime(time.time()))

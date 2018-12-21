@@ -86,7 +86,7 @@ class DateData:
 
 
 if __name__ == '__main__':
-    for i in range(1,13):
+    for i in range(1,10):
         data = DateData('%06d'%i)
         print(data.code, time.ctime(time.time()))
         data.save()
