@@ -78,7 +78,7 @@ class DateData:
     def save(self):
         dataframe = pd.DataFrame(self.data, index=self.index)
         dataframe.rename({"0":self.time}, axis='index')
-        filename = self.path + self.code + 'DateData' + '.json'
+        filename = self.path + 'DateData' + '.json'
         dirname = os.path.dirname(filename)
         if not os.path.exists(dirname):
             os.makedirs(dirname)

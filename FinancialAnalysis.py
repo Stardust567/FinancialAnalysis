@@ -110,7 +110,7 @@ class GetBussinessData:
     def __init__(self, code):
         # 服务器域名
         self.server = 'http://quotes.money.163.com/'
-        self.cwnb = 'http://quotes.money.163.com/f10/gszl_000001.html#01f01'
+        self.cwnb = 'http://quotes.money.163.com/f10/gszl_'
         self.url = self.cwnb + code + '.html#01f01'
         # 请求头
         self.headers = {
@@ -136,7 +136,10 @@ class GetBussinessData:
             for j in range(1, 5):
                 xpath = '/html/body/div[2]/div[4]/table/tr[' + str(i) + ']/td[' + str(j) + ']'
                 selector = etree.HTML(html)
-                data_temp = selector.xpath(xpath + '/text()')[0]
+                if(len(selector.xpath(xpath + '/text()')) == 0): # 为了避免有些内容为空导致index out的情况
+                    data_temp = " "
+                else:
+                    data_temp = selector.xpath(xpath + '/text()')[0]
                 if (j == 1 or j == 3):
                     index.append(data_temp)
                 else:
@@ -157,34 +160,49 @@ class Data:
         self.time = time
         self.index = index
         self.data_mat = data_mat
-        self.path = 'E:/Python/FinancialAnalysis/FinancialData/' + name +'/'
+        self.path = 'E:/Python/FinancialAnalysis/FinancialData/' + code +'/'
         BusinessData = GetBussinessData(code)
         business_data = BusinessData.get_information()
         self.business_data = business_data
 
     def save(self):
         dataframe = pd.DataFrame(self.data_mat, index=self.time)
-        filename = self.path + self.name + 'FinancialData' + '.json'
+        filename = self.path + 'FinancialData' + '.csv'
+        dirname = os.path.dirname(filename)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+        dataframe.to_csv(filename, sep=',')
+
+        dataframe = pd.DataFrame(self.business_data, index=['内容'])
+        filename = self.path + 'BusinessData' + '.csv'
+        dirname = os.path.dirname(filename)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+        dataframe.to_csv(filename, sep=',')
+        '''
+        dataframe = pd.DataFrame(self.data_mat, index=self.time)
+        filename = self.path + 'FinancialData' + '.json'
         dirname = os.path.dirname(filename)
         if not os.path.exists(dirname):
             os.makedirs(dirname)
         dataframe.to_json(filename, force_ascii=False)
 
         dataframe = pd.DataFrame(self.business_data, index=['内容'])
-        filename = self.path + self.name + 'BusinessData' + '.json'
+        filename = self.path + 'BusinessData' + '.json'
         dirname = os.path.dirname(filename)
         if not os.path.exists(dirname):
             os.makedirs(dirname)
         dataframe.to_json(filename, force_ascii=False)
+        '''
 
 class getPicture:
     '''
     绘制图像
     '''
 
-    def __init__(self,name):
+    def __init__(self,code):
 
-        self.path = 'E:/Python/FinancialAnalysis/FinancialData/' + name + '/'
+        self.path = 'E:/Python/FinancialAnalysis/FinancialData/' + code + '/'
         self.style = 'seaborn-bright'
         # self.style = 'dark_background'
 
@@ -354,7 +372,7 @@ class Picture():
 
     def __init__(self, data):
         self.data = data
-        self.get = getPicture(data.name)
+        self.get = getPicture(data.code)
 
     def linePicture(self, save = True):
         data = self.data
