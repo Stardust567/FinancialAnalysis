@@ -1,0 +1,46 @@
+.buttoncontainer{
+	margin: 0 auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.content{
+	padding: 2em 1em 5em;
+	z-index: 1;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.content h2 {
+	margin: 0 0 2em;
+	color: #A8B3B8;
+	font-size: 3em;
+}
+
+.box {
+	padding: 4.5em 0;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.codrops-header {
+	padding: 3em 190px 4em;
+	letter-spacing: -1px;
+}
+.codrops-header h1 {
+	font-weight: 200;
+	font-size: 4em;
+	line-height: 1;
+	margin-bottom: 0;
+	color: #A8B3B8;
+}
+
+a:link{
+	color: #fff!important;
+}

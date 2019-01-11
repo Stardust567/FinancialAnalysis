@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <link rel="stylesheet" type="text/css" href="buttonstyle.css">
+</head>
+<body>
+    <div id="container"></div>
+    <script src="starfield.js"></script>
+    <script>
+        var container = document.getElementById('container');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+    </script>
+    <div class="buttoncontainer">
+        <header class="codrops-header">
+            <h1>Financial Analysis</h1>
+        </header>
+        <section class="content">
+            <div class="box bg-3">
+            	{% for business in businesses %}
+	            	<a href="{{ business.url }}.html">
+	                <button class="button button--wayra button--border-medium button--text-upper button--size-s">{{ business.name }}</button>
+	                </a>
+            	{% endfor %}
+            </div>
+        </section>
+    </div>
+</body>
+</html>

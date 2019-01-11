@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="base.css">
+</head>
+
+<div class="col_l_01">
+<br />
+    <h1 class="title_01"> <span class="name">公司简介</span></h1>
+	<br />
+    <div class="blank9"></div>
+    <table class="table_bg001 border_box limit_sale table_details">
+        {% for business in businesses %}
+			{{business}}
+		{% endfor %}
+    </table>
+</div>
+<br />
+<br />
+
+<h1 class="title_01"> <span class="name">实时数据</span></h1>
+<br />
+<table class="table_bg001 border_box limit_sale scr_table" >
+	</tr>
+    {% for date in dates %}
+		<tr>{{date}}</tr>
+    {% endfor %}
+</table>
+<br />
+<br />
+
+<h1 class="title_01"> <span class="name">历史数据</span></h1>
+<br />
+<table class="table_bg001 border_box limit_sale scr_table" >
+	<tr class="dbrow"> <th >主要财务指标</th>{{time}} </tr>
+    {% for businessdata in businessesdata %}
+		<tr>{{businessdata}}</tr>
+    {% endfor %}
+</table>
+<br />
+<br />
+
+<h1 class="title_01"> <span class="name">数据可视化</span></h1>
+<body>
+    <div id="container"></div>
+    <script src="starfield.js"></script>
+    <script>
+        var container = document.getElementById('container');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+    </script>
+        <ul class="content" id="imagegallery">
+            <h2>linePicture</h2>
+        <li>
+            <a href="FinancialData/{{code}}/linePicture/偿 债 能 力.png" class="img">
+                <img src="FinancialData/{{code}}/linePicture/偿 债 能 力.png" class="img">
+            </a>
+        </li>
+        <li>
+            <a href="FinancialData/{{code}}/linePicture/利 润 总 额.png" class="img">
+                <img src="FinancialData/{{code}}/linePicture/利 润 总 额.png" class="img">
+            </a>
+        </li>
+        <li>
+            <a href="FinancialData/{{code}}/linePicture/盈 利 能 力.png" class="img">
+                <img src="FinancialData/{{code}}/linePicture/盈 利 能 力.png" class="img">
+            </a>
+        </li>
+        <li>
+            <a href="FinancialData/{{code}}/linePicture/主 营 业 务.png" class="img">
+                <img src="FinancialData/{{code}}/linePicture/主 营 业 务.png" class="img">
+            </a>
+        </li>
+         <script type="photo.js"></script>
+        </ul>
+
+        <div class="container"></div>
+        <script src="starfield.js"></script>
+        <script>
+            var container = document.getElementById('container');
+            var starfield = new Starfield();
+            starfield.initialise(container);
+            starfield.start();
+        </script>
+
+        <ul id="imagegallery" class="content">
+            <h2>piePicture</h2>
+            <li>
+            <a href="FinancialData/{{code}}/piePicture/偿 债 能 力.png" class="img">
+                <img src="FinancialData/{{code}}/piePicture/偿 债 能 力.png" class="img">
+            </a>
+        </li>
+        <li>
+            <a href="FinancialData/{{code}}/piePicture/盈 利 组 成.png" class="img">
+                <img src="FinancialData/{{code}}/piePicture/盈 利 组 成.png" class="img">
+            </a>
+        </li>
+        <script type="photo.js"></script>
+        </ul>
+
+        <div class="container"></div>
+        <script src="starfield.js"></script>
+        <script>
+            var container = document.getElementById('container');
+            var starfield = new Starfield();
+            starfield.initialise(container);
+            starfield.start();
+        </script>
+        <ul id="imagegallery" class="content">
+            <h2>radarPicture</h2>
+            <li>
+            <a href="FinancialData/{{code}}/radarPicture/盈利组成历史对比.png" class="img">
+                <img src="FinancialData/{{code}}/radarPicture/盈利组成历史对比.png" class="img">
+            </a>
+        </li>
+        <script type="photo.js"></script>
+        </ul>
+</body>
+</html>
