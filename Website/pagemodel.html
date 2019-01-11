@@ -8,7 +8,17 @@
     <link rel="stylesheet" type="text/css" href="base.css">
 </head>
 
+<body>
 <div class="col_l_01">
+
+<div id="container"></div>
+    <script src="starfield.js"></script>
+    <script>
+        var container = document.getElementById('container');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+    </script>
 <br />
     <h1 class="title_01"> <span class="name">公司简介</span></h1>
 	<br />
@@ -24,6 +34,14 @@
 
 <h1 class="title_01"> <span class="name">实时数据</span></h1>
 <br />
+<div id="container"></div>
+    <script src="starfield.js"></script>
+    <script>
+        var container = document.getElementById('container');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+    </script>
 <table class="table_bg001 border_box limit_sale scr_table" >
 	</tr>
     {% for date in dates %}
@@ -35,6 +53,14 @@
 
 <h1 class="title_01"> <span class="name">历史数据</span></h1>
 <br />
+<div id="container"></div>
+    <script src="starfield.js"></script>
+    <script>
+        var container = document.getElementById('container');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+    </script>
 <table class="table_bg001 border_box limit_sale scr_table" >
 	<tr class="dbrow"> <th >主要财务指标</th>{{time}} </tr>
     {% for businessdata in businessesdata %}
@@ -45,7 +71,6 @@
 <br />
 
 <h1 class="title_01"> <span class="name">数据可视化</span></h1>
-<body>
     <div id="container"></div>
     <script src="starfield.js"></script>
     <script>

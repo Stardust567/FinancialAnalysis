@@ -58,17 +58,19 @@ def makepage(code):
 
         count += 1
 
-    for i in range(0, len(date_index), 2):
+    for i in range(0, len(date_index), 6):
         if (count % 2 == 1):
             datetemp = "<tr  class=\"dbrow\"><td class=\"td_label\">" + date_index[i] + "</td>"
         else:
             datetemp = "<tr><td class=\"td_label\">" + date_index[i] + "</td>"
 
-        datetemp += "<td class=\"td_width160\">" + date_content[i] + "</td>"
-        if (i < len(date_index) - 1):
-            i += 1  # 一行有两格内容
-        datetemp += "<td class=\"td_label keep_line\">" + date_index[i] + "</td>"
-        datetemp += "<td class=\"td_width160\">" + date_content[i] + "</td>"
+        datetemp += "<td class=\"td_w\">" + date_content[i] + "</td>"
+        for j in range(5):
+            if (i < len(date_index) - 1):
+                i += 1  # 一行有六格内容
+            datetemp += "<td class=\"td_label keep_line\">" + date_index[i] + "</td>"
+            datetemp += "<td class=\"td_w\">" + date_content[i] + "</td>"
+
         datetemp += "</tr>"
         dates.append(datetemp)
 
@@ -85,7 +87,7 @@ def makepage(code):
         f.write(template.render(render_data))
 
 if __name__ == '__main__':
-    for i in range(1, 10):
+    for i in range(2,3):
         code = '%06d' % i
         print(code, time.ctime(time.time()))
         makepage(code)

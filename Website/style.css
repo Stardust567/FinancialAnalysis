@@ -42,7 +42,7 @@ body {
 .table_details th, .table_details td {
     # white-space: normal;
     text-align: left;
-    line-height: 22px;
+    line-height: 25px;
     padding: 0 10px;
 }
 
@@ -70,7 +70,7 @@ body {
 table, td, tr, th {
     font-size: 13px;
     padding: 0;
-    margin: 0;
+    margin:0px auto;
 }
 
 td, th {
@@ -95,4 +95,12 @@ table {
     background-color: #f2f2f2;
 }
 
+.title_01{
+    margin: 0 1em 1em;
+    color: #A8B3B8;
+    font-size: 3em;
+}
 
+.td_w {
+    width: 110px;
+}

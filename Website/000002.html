@@ -8,7 +8,17 @@
     <link rel="stylesheet" type="text/css" href="base.css">
 </head>
 
+<body>
 <div class="col_l_01">
+
+<div id="container"></div>
+    <script src="starfield.js"></script>
+    <script>
+        var container = document.getElementById('container');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+    </script>
 <br />
     <h1 class="title_01"> <span class="name">公司简介</span></h1>
 	<br />
@@ -42,18 +52,20 @@
 
 <h1 class="title_01"> <span class="name">实时数据</span></h1>
 <br />
+<div id="container"></div>
+    <script src="starfield.js"></script>
+    <script>
+        var container = document.getElementById('container');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+    </script>
 <table class="table_bg001 border_box limit_sale scr_table" >
 	</tr>
     
-		<tr><tr><td class="td_label">升降百分比</td><td class="td_width160"> 0.009956</td><td class="td_label keep_line">今日最高价</td><td class="td_width160"> 25.54</td></tr></tr>
+		<tr><tr><td class="td_label">升降百分比</td><td class="td_w"> 0.007567</td><td class="td_label keep_line">今日最高价</td><td class="td_w"> 25.54</td><td class="td_label keep_line">当前价</td><td class="td_w"> 25.3</td><td class="td_label keep_line">今日开盘价</td><td class="td_w"> 25.1</td><td class="td_label keep_line">今日最低价</td><td class="td_w"> 25.01</td><td class="td_label keep_line">价格升降</td><td class="td_w"> 0.19</td></tr></tr>
     
-		<tr><tr  class="dbrow"><td class="td_label">当前价</td><td class="td_width160"> 25.36</td><td class="td_label keep_line">今日开盘价</td><td class="td_width160"> 25.1</td></tr></tr>
-    
-		<tr><tr><td class="td_label">今日最低价</td><td class="td_width160"> 25.01</td><td class="td_label keep_line">价格升降</td><td class="td_width160"> 0.25</td></tr></tr>
-    
-		<tr><tr  class="dbrow"><td class="td_label">更新时间</td><td class="td_width160"> "2019/01/11 14</td><td class="td_label keep_line">今日成交量</td><td class="td_width160"> 20432461</td></tr></tr>
-    
-		<tr><tr><td class="td_label">昨日收盘价</td><td class="td_width160"> 25.11</td><td class="td_label keep_line">今日成交额</td><td class="td_width160"> 514912503.15</td></tr></tr>
+		<tr><tr  class="dbrow"><td class="td_label">更新时间</td><td class="td_w"> "2019/01/11 15</td><td class="td_label keep_line">今日成交量</td><td class="td_w"> 24069490</td><td class="td_label keep_line">昨日收盘价</td><td class="td_w"> 25.11</td><td class="td_label keep_line">今日成交额</td><td class="td_w"> 606994703.42</td><td class="td_label keep_line">今日成交额</td><td class="td_w"> 606994703.42</td><td class="td_label keep_line">今日成交额</td><td class="td_w"> 606994703.42</td></tr></tr>
     
 </table>
 <br />
@@ -61,6 +73,14 @@
 
 <h1 class="title_01"> <span class="name">历史数据</span></h1>
 <br />
+<div id="container"></div>
+    <script src="starfield.js"></script>
+    <script>
+        var container = document.getElementById('container');
+        var starfield = new Starfield();
+        starfield.initialise(container);
+        starfield.start();
+    </script>
 <table class="table_bg001 border_box limit_sale scr_table" >
 	<tr class="dbrow"> <th >主要财务指标</th><th >2015-12</th><th >2016-03</th><th >2016-06</th><th >2016-09</th><th >2016-12</th><th >2017-03</th><th >2017-06</th><th >2017-09</th><th >2017-12</th><th >2018-03</th><th >2018-06</th><th >2018-09</th> </tr>
     
@@ -107,7 +127,6 @@
 <br />
 
 <h1 class="title_01"> <span class="name">数据可视化</span></h1>
-<body>
     <div id="container"></div>
     <script src="starfield.js"></script>
     <script>
