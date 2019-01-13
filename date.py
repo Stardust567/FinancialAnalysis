@@ -76,20 +76,25 @@ class DateData:
         self.path = 'E:/Python/FinancialAnalysis/DateData/' + code +'/'
 
     def save(self):
-        dataframe = pd.DataFrame(self.data, index=self.index)
-        dataframe.rename({"0":self.time}, axis='index')
+        '''
         filename = self.path + 'DateData' + '.json'
         dirname = os.path.dirname(filename)
         if not os.path.exists(dirname):
             os.makedirs(dirname)
         dataframe.to_json(filename, force_ascii=False)
+        dataframe = pd.DataFrame(self.data_mat, index=self.time)
+        '''
+        dataframe = pd.DataFrame(self.data, index=self.index)
+        dataframe.rename({"0": self.time}, axis='index')
+        filename = self.path + 'DateData' + '.csv'
+        dirname = os.path.dirname(filename)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+        dataframe.to_csv(filename, sep=',', encoding="utf_8_sig")
 
-'''
+
 if __name__ == '__main__':
     for i in range(1,10):
         data = DateData('%06d'%i)
         print(data.code, time.ctime(time.time()))
-        print(data.index)
-        print(data.data)
         data.save()
-'''

@@ -195,6 +195,7 @@ class Data:
         dataframe.to_json(filename, force_ascii=False)
         '''
 
+
 class getPicture:
     '''
     绘制图像
